@@ -17,19 +17,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
-
+  const mainTitle = document.querySelector("#main-title");
+  mainTitle.textContent = "Something Shorter";
 
   // Part 2
-
+  document.querySelector("body").style.backgroundColor = "#53ea92";
 
   // Part 3
-
-
+  const favList =  document.querySelector("#favorite-things");
+  favList.removeChild(favList.children[favList.children.length-1]);
+  
   // Part 4
-
+  const specialTitles = document.querySelectorAll(".special-title");
+  specialTitles.forEach((node) => node.style.fontSize = "2rem");
 
   // Part 5
-
+  const pastRaces =  document.querySelector("#past-races");
+  for(let node of pastRaces.children) 
+  {
+    if(node.textContent === "Chicago")
+    {
+      node.remove();
+      break;
+    }
+  }
 
   // Part 6
 
