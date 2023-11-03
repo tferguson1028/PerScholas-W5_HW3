@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   mainTitle.textContent = "Something Shorter";
 
   // Part 2
-  document.querySelector("body").style.backgroundColor = "#53ea92";
+  document.querySelector("body").style.backgroundColor = "#53ea92"; // Minty
 
   // Part 3
   const favList =  document.querySelector("#favorite-things");
@@ -37,23 +37,57 @@ document.addEventListener("DOMContentLoaded", function(event) {
   {
     if(node.textContent === "Chicago")
     {
+      // My Java trauma is screaming at me!
       node.remove();
       break;
     }
   }
 
   // Part 6
-
+  const newLiElement = document.createElement("li");
+  newLiElement.textContent = "Seattle";
+  pastRaces.appendChild(newLiElement);
 
   // Part 7
-
+  const newBlogPost = document.createElement("div");
+  const newHeader = document.createElement("h1"); // Why h2?
+  const newParagraph = document.createElement("p");
+  newBlogPost.className = "blog-post purple";
+  newHeader.textContent = "Seattle";
+  newParagraph.textContent = "I JUMPED MY CAR OVER THE SPACE NEEDLE!";
+  
+  newBlogPost.appendChild(newHeader);  
+  newBlogPost.appendChild(newParagraph);
+  
+  console.log(newBlogPost);
+  document.querySelector(".main").appendChild(newBlogPost);
+  
 
   // Part 8
-
+  document.querySelector("#quote-title").addEventListener("click", () =>
+  {
+    randomQuote();
+  });
+  
 
   // Part 9
-
-
-
-
+  
+  // I don't think this works how the author thought it would work...
+  // I'm changing "mouseout" to "mouseleave" since it works better.
+  // DOM says that mouseout/mouseover bubble, and mouseleave/mouseenter don't
+  const blogPosts = document.querySelectorAll(".blog-post");
+  for(let post of blogPosts)
+  {
+    post.addEventListener("mouseleave", function()
+    {
+      post.classList.toggle("red");
+      post.classList.toggle("purple");
+    });
+    
+    post.addEventListener("mouseenter", function()
+    {
+      post.classList.toggle("red");
+      post.classList.toggle("purple");
+    });
+  } 
 });
