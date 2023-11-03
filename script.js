@@ -74,20 +74,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
   // I don't think this works how the author thought it would work...
   // I'm changing "mouseout" to "mouseleave" since it works better.
+  // Also doing both toggles in both events since it works better. 
   // DOM says that mouseout/mouseover bubble, and mouseleave/mouseenter don't
   const blogPosts = document.querySelectorAll(".blog-post");
+  const togglePost = function(post)
+  {
+    post.target.classList.toggle("red");
+    post.target.classList.toggle("purple");
+  }
+  
   for(let post of blogPosts)
   {
-    post.addEventListener("mouseleave", function()
-    {
-      post.classList.toggle("red");
-      post.classList.toggle("purple");
-    });
-    
-    post.addEventListener("mouseenter", function()
-    {
-      post.classList.toggle("red");
-      post.classList.toggle("purple");
-    });
+    post.addEventListener("mouseleave", togglePost);
+    post.addEventListener("mouseenter", togglePost);
   } 
 });
